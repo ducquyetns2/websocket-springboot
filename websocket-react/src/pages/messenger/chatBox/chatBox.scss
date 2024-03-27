@@ -1,0 +1,12 @@
+.chatBox {
+    padding: 10px 2px 0 10px;
+    border: 2px solid #f1f1f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .chatBoxTop {
+        height: calc(100vh - var(--footerHeight));
+        overflow-y: overlay;
+    }
+}

@@ -1,0 +1,22 @@
+.form {
+    background-image: url('../../images/background-form.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+    .form_login {
+        width: 600px;
+        background-color: white;
+    }
+
+    .form_register {
+        .register-content {
+            background-color: white;
+        }
+    }
+}
+
+.error_message {
+    color: red;
+    text-align: center;
+}

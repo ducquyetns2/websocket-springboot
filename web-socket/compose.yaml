@@ -1,0 +1,35 @@
+services :
+  db :
+    image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
+    container_name: sqlServer_db
+    ports:
+      - 1433:1433
+    user: root
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Anhquy20
+    volumes:
+      - db_data:/var/opt/mssql/data
+    networks:
+      - connect
+  backend :
+    container_name: web_socket
+    build :
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    environment:
+      - DB_SERVER=sqlServer_db
+      - DB_USER=sa
+      - DB_PASSWORD=Anhquy20
+      - DB_PORT=1433
+    volumes:
+      - ./:/app
+    networks:
+      - connect
+networks:
+  connect:
+    name: connect
+volumes:
+  db_data:
